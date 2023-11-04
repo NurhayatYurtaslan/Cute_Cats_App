@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 
 
 
-class Cats extends Equatable {
+class Cat extends Equatable {
   final String id;
   final String name;
   final Image image;
 
-  const Cats({
+  const Cat({
     required this.id,
     required this.name,
     required this.image,
@@ -17,14 +17,14 @@ class Cats extends Equatable {
   @override
   List<Object?> get props => [id, name, image];
   
-  static List<Cats> cats = [
-    Cats(id: '1',
+  static List<Cat> cat = [
+    Cat(id: '1',
     name: 'Cat One',
-    image: Image.asset('images/cat_one.png')
+    image: Image.asset('assets/images/cat_one.png')
     ),
-    Cats(id: '2',
+    Cat(id: '2',
     name: 'Cat Two',
-    image: Image.asset('images/cat_two.png')
+    image: Image.asset('assets/images/cat_two.png')
     ),
   ];
 }
