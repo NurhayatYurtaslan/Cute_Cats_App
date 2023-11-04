@@ -1,4 +1,4 @@
-part of 'bloc_bloc.dart';
+part of 'cat_bloc.dart';
 
 sealed class CatEvent extends Equatable {
   const CatEvent();

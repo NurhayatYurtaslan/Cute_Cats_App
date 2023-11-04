@@ -3,8 +3,8 @@ import 'dart:ffi';
 import 'package:bloc/bloc.dart';
 import 'package:cute_cats_app/home_view/cat_view.dart';
 import 'package:equatable/equatable.dart';
-part 'bloc_event.dart';
-part 'bloc_state.dart';
+part 'cat_event.dart';
+part 'cat_state.dart';
 
 class CatBloc extends Bloc<CatEvent, CatState> {
   CatBloc() : super(CatInitial()) {

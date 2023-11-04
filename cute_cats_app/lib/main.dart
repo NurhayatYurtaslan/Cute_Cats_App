@@ -1,5 +1,5 @@
 import 'dart:math';
-import 'package:cute_cats_app/home_view/bloc/bloc_bloc.dart';
+import 'package:cute_cats_app/home_view/bloc/cat_bloc.dart';
 import 'package:cute_cats_app/home_view/cat_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
