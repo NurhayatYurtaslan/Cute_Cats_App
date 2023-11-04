@@ -19,7 +19,7 @@ class removeCatButton_widget extends StatelessWidget {
   Widget build(BuildContext context) {
     return FloatingActionButton(
       backgroundColor: bgcolor,
-      onPressed: () => context.read<CatBloc>().add(AddCat(Cat.cat[index])),
+      onPressed: () => context.read<CatBloc>().add(RemoveCat(Cat.cat[index])),
       child: const Icon(Icons.remove),
     );
   }
