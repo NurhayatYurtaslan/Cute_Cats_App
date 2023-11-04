@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'package:cute_cats_app/home_view/bloc/cat_bloc.dart';
-import 'package:cute_cats_app/home_view/cat_view.dart';
+import 'package:cute_cats_app/home_view/widgets/body_widget.dart';
+import 'package:cute_cats_app/home_view/widgets/floatingActionButton_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -57,94 +58,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   colors: <Color>[Colors.black, Colors.purpleAccent])),
         ),
       ),
-      body: Center(
-        child: BlocBuilder<CatBloc, CatState>(
-          builder: (context, state) {
-            if (state is CatInitial) {
-              return const CircularProgressIndicator(
-                color: Colors.pinkAccent,
-              );
-            }
-            if (state is CatLoaded) {
-              return Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    '${state.cats.length}',
-                    style: const TextStyle(
-                      fontSize: 60,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height / 1.5,
-                    width: MediaQuery.of(context).size.width,
-                    child: Stack(
-                      alignment: Alignment.center,
-                      clipBehavior: Clip.none,
-                      children: [
-                        for (int index = 0; index < state.cats.length; index++)
-                          Positioned(
-                            left: random.nextInt(250).toDouble(),
-                            top: random.nextInt(400).toDouble(),
-                            child: SizedBox(
-                              height: 150,
-                              width: 150,
-                              child: state.cats[index].image,
-                            ),
-                          )
-                      ],
-                    ),
-                  )
-                ],
-              );
-            } else {
-              return const Text('Something went wrong!');
-            }
-          },
-        ),
-      ),
-      floatingActionButton: Row(
-        
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const SizedBox(
-            width: 40,
-          ),
-          FloatingActionButton(
-            backgroundColor: Colors.purpleAccent,
-            onPressed: () => context.read<CatBloc>().add(AddCat(Cat.cat[0])),
-            child: const Icon(Icons.pets),
-          ),
-          const SizedBox(
-            width: 10,
-          ),
-          FloatingActionButton(
-            backgroundColor: Colors.purpleAccent,
-            onPressed: () => context.read<CatBloc>().add(RemoveCat(Cat.cat[0])),
-            child: const Icon(Icons.remove),
-          ),
-          const SizedBox(
-            width: 10,
-          ),
-          FloatingActionButton(
-            backgroundColor: Colors.black,
-            onPressed: () => context.read<CatBloc>().add(AddCat(Cat.cat[1])),
-            child: const Icon(Icons.pets),
-          ),
-          const SizedBox(
-            width: 10,
-          ),
-          FloatingActionButton(
-            backgroundColor: Colors.black,
-            onPressed: () => context.read<CatBloc>().add(RemoveCat(Cat.cat[1])),
-            child: const Icon(Icons.remove),
-          ),
-        ],
-      ),
+      body: bodyWidget(random: random),
+      floatingActionButton: const floatingActionButton(),
     );
   }
 }
+
+
+
