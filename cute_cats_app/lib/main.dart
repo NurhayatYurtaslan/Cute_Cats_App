@@ -43,14 +43,23 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final Random random = Random();
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Cats App'),
         centerTitle: true,
-        backgroundColor: Colors.pinkAccent,
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.bottomCenter,
+              end: Alignment.bottomRight,
+              colors: <Color>[
+              Colors.black,
+              Colors.purpleAccent
+            ])
+          ),
+        ),
       ),
       body: Center(
         child: BlocBuilder<CatBloc, CatState>(
@@ -102,35 +111,38 @@ class _HomeScreenState extends State<HomeScreen> {
           },
         ),
       ),
-      floatingActionButton: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          const SizedBox(
+            width: 40,
+          ),
           FloatingActionButton(
-            backgroundColor: Colors.pinkAccent,
+            backgroundColor: Colors.purpleAccent,
             onPressed: () => context.read<CatBloc>().add(AddCat(Cat.cat[0])),
             child: const Icon(Icons.pets),
           ),
           const SizedBox(
-            height: 10,
+            width: 10,
           ),
           FloatingActionButton(
-            backgroundColor: Colors.pinkAccent,
+            backgroundColor: Colors.purpleAccent,
             onPressed: () => context.read<CatBloc>().add(RemoveCat(Cat.cat[0])),
             child: const Icon(Icons.remove),
           ),
           const SizedBox(
-            height: 10,
+            width: 10,
           ),
           FloatingActionButton(
-            backgroundColor: Colors.pinkAccent,
+            backgroundColor: Colors.black,
             onPressed: () => context.read<CatBloc>().add(AddCat(Cat.cat[1])),
             child: const Icon(Icons.pets),
           ),
           const SizedBox(
-            height: 10,
+            width: 10,
           ),
           FloatingActionButton(
-            backgroundColor: Colors.pinkAccent,
+            backgroundColor: Colors.black,
             onPressed: () => context.read<CatBloc>().add(RemoveCat(Cat.cat[1])),
             child: const Icon(Icons.remove),
           ),
