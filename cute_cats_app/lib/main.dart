@@ -47,18 +47,14 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Cats App'),
+        title: const Text('Cats App', style: TextStyle(fontSize: 30)),
         centerTitle: true,
         flexibleSpace: Container(
           decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.bottomCenter,
-              end: Alignment.bottomRight,
-              colors: <Color>[
-              Colors.black,
-              Colors.purpleAccent
-            ])
-          ),
+              gradient: LinearGradient(
+                  begin: Alignment.bottomLeft,
+                  end: Alignment.bottomRight,
+                  colors: <Color>[Colors.black, Colors.purpleAccent])),
         ),
       ),
       body: Center(
@@ -112,6 +108,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       floatingActionButton: Row(
+        
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const SizedBox(
