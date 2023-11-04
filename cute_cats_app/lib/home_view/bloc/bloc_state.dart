@@ -1,10 +1,23 @@
 part of 'bloc_bloc.dart';
 
-sealed class BlocState extends Equatable {
-  const BlocState();
-  
+sealed class CatState extends Equatable {
+  const CatState();
+
   @override
   List<Object> get props => [];
 }
 
-final class BlocInitial extends BlocState {}
+//CatInitial
+class CatInitial extends CatState {}
+
+//CatLoaded
+class CatLoaded extends CatState {
+
+  final List<Cat> cats;
+
+  const CatLoaded({required this.cats});
+
+  @override
+  List<Object> get props => [cats];
+}
+
